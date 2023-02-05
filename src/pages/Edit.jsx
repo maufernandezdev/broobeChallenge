@@ -72,7 +72,7 @@ const Edit = () => {
   
   return (
     <div className='container'>
-      <h2>Edit issue #{params.id}</h2>
+      <h2 style={{padding:'0 25px'}}>Edit issue #{params.id}</h2>
       <form onSubmit={handleSubmit}>
         <label>Change priority</label>
         <select name='priority_id' onChange={handleChange} value={selectedOption}> 

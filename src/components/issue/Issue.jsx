@@ -19,13 +19,15 @@ const Issue = ({data}) => {
   const setPriority = (priorityList) =>
   { 
     if(priorityList){
-      const {type} = priorityList.find(priority => priority.id === priority_id)
-      const colors = ['FF8300','ff0000','1798B5','B51749','E2F87D','63D93E'];
-      if(priority_id === 1) setSelectedColor(colors[2])
-      if(priority_id === 2) setSelectedColor(colors[1])
-      if(priority_id === 3) setSelectedColor(colors[0])
-      if(priority_id === 4) setSelectedColor(colors[5])
-      setPriorityType(type)
+      if(priorityList.length > 0){
+        const {type} = priorityList.find(priority => priority.id === priority_id)
+        const colors = ['FF8300','ff0000','1798B5','B51749','E2F87D','63D93E'];
+        if(priority_id === 1) setSelectedColor(colors[2])
+        if(priority_id === 2) setSelectedColor(colors[1])
+        if(priority_id === 3) setSelectedColor(colors[0])
+        if(priority_id === 4) setSelectedColor(colors[5])
+        setPriorityType(type)
+      }
     }
   }
 

@@ -154,10 +154,8 @@ h1 {
 /* issues */
 
 .container__issues{
-
   width: 100%;
-  max-width: 1024px;
-  padding: 1em;
+  padding: 0em 1em 1em 1.5em;
 }
 .container__issues .container__issues__link{
   margin-bottom: 1em;
@@ -211,6 +209,7 @@ h1 {
     text-align: center;
   }
   .container__issues{
+    max-width: 1024px;
     padding: 0;
   }
   .container__issues .container__issues__list{

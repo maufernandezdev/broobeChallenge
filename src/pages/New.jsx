@@ -70,7 +70,7 @@ const New = () => {
   const { values , handleInputChange , handleBlur} = useForm(initialForm);
   return (
     <div className='container'>
-      <h2>New issue</h2>
+      <h2 style={{padding:'0 25px'}}>New issue</h2>
       <form onSubmit={handleSubmit}>
         <label>Name</label>
         <input name='name' ref={inputName} type='text' placeholder='...' onChange={e => handleInputChange(e)} onBlur={handleBlur} required/>
