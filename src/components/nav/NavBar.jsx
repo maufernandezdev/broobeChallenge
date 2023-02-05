@@ -27,12 +27,16 @@ const NavBar = () =>{
         if(userSession)
         {
             setButtonSessionValue('...')
-        }
-        setTimeout(() => {
+            setTimeout(() => {
+                setToken('')
+                setButtonSessionValue('Login')
+                navigate('/login')
+            }, 1000);
+        }else{
             setToken('')
             setButtonSessionValue('Login')
             navigate('/login')
-        }, 1000);
+        }
     }
     return(
         <header>
