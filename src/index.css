@@ -99,12 +99,13 @@ a:hover {
   display: flex;
   width: 100%;
   max-width: 450px;
-  padding: 0px 30px;
+  padding: 0px 35px;
 }
 
 .container .container__redirect p{
  font-family: var(--font-mono);
- font-weight: 300; 
+ font-weight: 300;
+ font-size: 0.9em; 
 }
 
 .container .container__redirect a{

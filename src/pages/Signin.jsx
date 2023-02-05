@@ -30,7 +30,7 @@ const Signin = () => {
 
   return (
     <div className='container'>
-      <h2>Sign up</h2>
+      <h2 style={{padding:'0 27px'}}>Sign up</h2>
       <form onSubmit={handleSubmit}>
         <label>Name</label>
         <input name='name' type='text' placeholder='...' onChange={e => handleInputChange(e)} onBlur={handleBlur} required/>

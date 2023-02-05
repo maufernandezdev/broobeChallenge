@@ -34,7 +34,7 @@ const Login = () => {
 
   return (
     <div className='container'>
-      <h2>Sign in</h2>
+      <h2 style={{padding:'0 27px'}}>Sign in</h2>
       <form onSubmit={handleSubmit}>
         <label>Email</label>
         <input name='email' type='email' placeholder='...' onChange={e => handleInputChange(e)} onBlur={handleBlur} required/>
