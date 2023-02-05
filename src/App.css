@@ -1,0 +1,9 @@
+body{
+  background-color: #ebebeb;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: var(--font-mono);
+}

@@ -1,0 +1,35 @@
+:root{
+    --mainColor:#E4E9F7;
+    --textColor:#333333; 
+}
+
+header{
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 0em;
+    color: var(--textColor);
+    border-bottom: 1px solid #ccc;
+}
+
+header nav{
+    max-width: 1024px;
+    width: 100%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0em 1em;
+}
+
+header a{
+    text-decoration: none;
+    color: var(--textColor);
+}
+
+@media (min-width: 1024px){
+    header nav{
+        padding: 0;
+    }
+}
+

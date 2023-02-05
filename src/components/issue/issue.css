@@ -1,0 +1,56 @@
+.issue{
+    border: 2px solid rgba(0,0,0,.1);
+    padding: 7px 15px;
+    border-radius: 6px;
+    max-width: 200px;
+    transition: all 0.1s cubic-bezier(0.645,0.045,0.355,1);
+}
+
+.issue:hover{
+    -webkit-box-shadow: 1.25px 1.25px 20px rgba(0,0,0,0.4);
+    box-shadow: 1.25px 1.25px 7px rgba(0,0,0,0.4);
+}
+
+.issue h4{
+    font-size: 0.9em;
+}
+.issue  hr{
+    outline: none;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.issue .priority svg{
+    position: relative;
+    top: 3px;
+    font-size: 1.2em;
+    margin-right: 5px;
+}
+
+.issue div{
+    display: flex;
+}
+
+
+.issue div button,
+.issue div a{
+    width: 100%;
+    font-size: 0.7em;
+    border: none;
+    outline: none;
+    padding: 0.5em 0.7em;
+    border-radius: 6px;
+    color: #000;
+    font-family: var(--font-mono);
+    text-align: center;
+    background-color: #eee;
+    background-color: rgba(0,0,0,.1)
+}
+
+.issue div button:nth-child(2){
+    margin-left: 1em;
+}
+
+.issue div a{
+    color: #000;
+    opacity: 1;
+}

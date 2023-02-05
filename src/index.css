@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-roboto: 'Roboto', sans-serif;
+  --transition: all 0.1s cubic-bezier(0.645,0.045,0.355,1);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #e6007a;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
+a:hover {
+  opacity: 1;
+  cursor: default;
+}
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+}
+
+.container h1{
+  padding: 0px 20px;
+}
+
+.container h2{
+  width: 100%;
+  font-size: 2em;
+  padding: 0px 20px;
+}
+
+.container form{
+  max-width: 300px;
+  padding: 2em;
+  padding: 30px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 20px;
+  border: 2px solid rgba(0,0,0,.1);
+}
+
+.container form label{
+  padding: 0.7em 0.3em;
+}
+
+.container .container__redirect{
+  display: flex;
+  width: 100%;
+  max-width: 450px;
+  padding: 0px 30px;
+}
+
+.container .container__redirect p{
+ font-family: var(--font-mono);
+ font-weight: 300; 
+}
+
+.container .container__redirect a{
+
+  font-size: 1.1em;
+  margin-left: 0.2em; 
+}
+
+.container .container__redirect a svg{
+  position: relative;
+  top: 5px;
+  left: -7px;
+  font-size: 1.1em;
+}
+
+.container form input{
+  font-family: var(--font-mono);
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  padding: 0.9em;
+  font-size: 0.8em;
+  margin-bottom: 1em;
+  outline-color: #e6007a;
+  background-color: #eee;
+}
+
+.container form input[type='text']{
+  width: 100%;
+}
+
+.container form input[type='submit']{
+  outline: none;
+  border: none;
+  width: 100%;
+  margin-top: 1em;
+  background-color: #e6007a;
+  color: #fff;
+  font-weight: 700;
+  opacity: 0.85;
+  transition: var(--transition);
+}
+.container form input[type='submit']:hover{
+  opacity: 1;
+}
+
+.container form input[type='submit']:active{
+  transform: scale(0.97);
+}
+
+.container form select{
+  width: 100%;
+  border-radius: 6px;
+  padding: 0.7em;
+  outline-color: #e6007a;
+  border: none;
+  font-family: var(--font-mono);
+  background-color: #eee;
+  margin-bottom: 2em;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.button__login {
+    outline: none;
+    margin-left: 15px;
+    padding: 0.5em 0.7em;
+    border-radius: 7px;
+    font-family: var(--font-mono);
+    font-size: 0.8em;
+}
+
+.error{
+  color: #ff0000;
+  font-size: 0.8em;
+}
+
+/* issues */
+
+.container__issues{
+
+  width: 100%;
+  max-width: 1024px;
+  padding: 1em;
+}
+.container__issues .container__issues__link{
+  margin-bottom: 1em;
+}
+.container__issues .container__issues__link a{
+  font-size: 1.1em; 
+}
+
+.container__issues .container__issues__link a svg{
+  position: relative;
+  top: 5px;
+  left: -5px;
+  font-size: 1.1em;
+}
+
+.container__issues .container__issues__list{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 15px;
+}
+
+.container__issues .container__issues__list .emptyIssues{
+  width: 300px;
+}
+
+@media (min-width: 1024px){
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    padding: 0em 0em 2em 0em;
+    overflow-x: hidden;
+  }
+  
+  .container h2{
+    width: 100%;
+    font-size: 2.5em;
+    padding: 0px 20px;
+  }
+  
+  .container form{
+    min-width: 450px;
+    max-width: 450px;
+  }
+
+  .container h2{
+    text-align: center;
+  }
+  .container__issues{
+    padding: 0;
+  }
+  .container__issues .container__issues__list{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 25px;
+  } 
+}
