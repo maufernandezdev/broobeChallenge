@@ -29,6 +29,13 @@ const NavBar = () =>{
     return(
         <header>
             <nav ref={navRef}>
+                {
+                    !userSession ? (
+                        <Link to='/'>Home</Link>
+                    ) : (
+                        <Link to='/issues'>Issues</Link>
+                    )
+                }
                 <button className="button__login" onClick={handleSession}>{buttonSessionValue}</button>
             </nav>
         </header>

@@ -22,9 +22,14 @@ header nav{
     padding: 0em 1em;
 }
 
-header a{
+header nav a{
     text-decoration: none;
     color: var(--textColor);
+    font-family: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+    display: flex;
+    align-items: center;
 }
 
 @media (min-width: 1024px){
