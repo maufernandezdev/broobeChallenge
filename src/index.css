@@ -183,9 +183,13 @@ h1 {
     font-size: 0.8em;
 }
 
-.error{
+.container form .error{
   color: #ff0000;
   font-size: 0.8em;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0 3px;
 }
 
 /* issues */
