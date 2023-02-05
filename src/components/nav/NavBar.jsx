@@ -15,16 +15,24 @@ const NavBar = () =>{
     }, [])
 
     useEffect(() => {
-        if(userSession) setButtonSessionValue('Logout')
-        else setButtonSessionValue('Login')
+        setTimeout(() => {
+            if(userSession) setButtonSessionValue('Logout')
+            else setButtonSessionValue('Login')
+        }, 1000);
     }, [userSession])
     
     const navigate = useNavigate();
     const handleSession = () =>
-    {
-        setToken('')
-        navigate('/login')
-
+    {   
+        if(userSession)
+        {
+            setButtonSessionValue('...')
+        }
+        setTimeout(() => {
+            setToken('')
+            setButtonSessionValue('Login')
+            navigate('/login')
+        }, 1000);
     }
     return(
         <header>

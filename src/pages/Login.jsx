@@ -11,20 +11,27 @@ const Login = () => {
   const navigate = useNavigate();
   const {setToken} = useContext(Session);
   const [invalidUserOrPass , setInvalidUserOrPass] = useState(false);
+  const [pending , setPending] = useState(false);
+  const [buttonStatus , setButtonStatus] = useState('LOGIN');
 
   const handleSubmit = async (e) =>
   {
     e.preventDefault();
+    setButtonStatus('AUTHENTICATING...');
+    setPending(true);
     const loginSuccess = await loginUser(values);
     if(loginSuccess.token){
       setInvalidUserOrPass(false)
       setToken(loginSuccess.token);
       setTimeout(() => {
+        setPending(false);
         navigate('/issues');
-      }, 500);
+      }, 1000);
     }else{
       if(loginSuccess.message === 'Cannot find user'){
         setInvalidUserOrPass(true)
+        setPending(false);
+        setButtonStatus('LOGIN');
       }
     }
   }
@@ -40,7 +47,7 @@ const Login = () => {
         <input name='email' type='email' placeholder='...' onChange={e => handleInputChange(e)} onBlur={handleBlur} required/>
         <label>Password</label>
         <input name='password' type='password' placeholder='...' onChange={e => handleInputChange(e)} onBlur={handleBlur} required/>
-        <input type='submit' value='LOGIN' />
+        <input type='submit' value={buttonStatus} disabled={pending} />
         {
           invalidUserOrPass && (
             <p className='error'>Incorrect email/password combination</p>

@@ -10,7 +10,9 @@ const SignIn = async (form) =>
             body: JSON.stringify(form)
         });
         const data = await response.json()
-        if(data) return data
+        if(data && data.length > 0){
+            return data
+        }
     } catch (error) {
         return {error: error}
     }

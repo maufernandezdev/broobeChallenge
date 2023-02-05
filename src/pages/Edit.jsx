@@ -9,11 +9,14 @@ import { Link } from 'react-router-dom'
 import { HiOutlineArrowNarrowLeft } from 'react-icons/hi'
 
 const Edit = () => {
+
   const {userSession:token , priorities} = useContext(Session);
   const params = useParams();
   const [selectOptions, setSelectOptions] = useState([]);
   const [selectedOption, setSelectedOption] = useState('');
-  const [currentIssue, setCurrentIssue] = useState({})
+  const [currentIssue, setCurrentIssue] = useState({});
+  const [pending , setPending] = useState(false);
+  const [buttonStatus , setButtonStatus] = useState('UPDATE');
 
   const getPriorityList = async () =>
   { 
@@ -54,6 +57,8 @@ const Edit = () => {
   const handleSubmit = async (e) =>
   {
     e.preventDefault();
+    setButtonStatus('UPDATATING...');
+    setPending(true);  
     const form = {
       name: currentIssue.name,
       description: currentIssue.description,
@@ -61,12 +66,27 @@ const Edit = () => {
     }
     const isEdited = await updateIssuePriority(params.id, form, token);
     if(isEdited){
-      toast.success('Successfully edited!', {
-        position: "bottom-center",
-        duration: 3500,
-        style: {
-            fontFamily:'ui-monospace, Menlo, Monaco, Cascadia Mono, Segoe UI Mono, Roboto Mono, Oxygen Mono, Ubuntu Monospace, Source Code Pro, Fira Mono, Droid Sans Mono, Courier New, monospace'},
-      });
+      setTimeout(() => {
+        toast.success('Successfully edited!', {
+          position: "bottom-center",
+          duration: 2000,
+          style: {
+              fontFamily:'ui-monospace, Menlo, Monaco, Cascadia Mono, Segoe UI Mono, Roboto Mono, Oxygen Mono, Ubuntu Monospace, Source Code Pro, Fira Mono, Droid Sans Mono, Courier New, monospace'},
+        });
+        setButtonStatus('UPDATE')
+        setPending(false); 
+      }, 700);
+    }else{
+      setTimeout(() => {
+        toast.error('Failed to update!', {
+          position: "bottom-center",
+          duration: 3500,
+          style: {
+              fontFamily:'ui-monospace, Menlo, Monaco, Cascadia Mono, Segoe UI Mono, Roboto Mono, Oxygen Mono, Ubuntu Monospace, Source Code Pro, Fira Mono, Droid Sans Mono, Courier New, monospace'},
+        });
+        setButtonStatus('UPDATE')
+        setPending(false);
+      }, 700);
     }
   }
   
@@ -78,7 +98,7 @@ const Edit = () => {
         <select name='priority_id' onChange={handleChange} value={selectedOption}> 
           {selectOptions && (selectOptions.map((option) => (<option key={option.id} value={option.id}> {option.type} </option>)))} 
         </select>
-        <input type='submit' value='UPDATE' />
+        <input type='submit' value={buttonStatus} disabled={pending}/>
       </form>
       <div className='container__redirect' style={{marginTop: '1.5em'}}>
         <Link to='/issues'><HiOutlineArrowNarrowLeft></HiOutlineArrowNarrowLeft>Issues</Link> 

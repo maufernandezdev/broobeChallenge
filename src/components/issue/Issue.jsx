@@ -63,7 +63,7 @@ const Issue = ({data}) => {
           renderList(!list)
           toast.success('Delete successful!', {
             position: "bottom-center",
-            duration: 3500,
+            duration: 2000,
             style: {
                 fontFamily:'ui-monospace, Menlo, Monaco, Cascadia Mono, Segoe UI Mono, Roboto Mono, Oxygen Mono, Ubuntu Monospace, Source Code Pro, Fira Mono, Droid Sans Mono, Courier New, monospace'},
           });

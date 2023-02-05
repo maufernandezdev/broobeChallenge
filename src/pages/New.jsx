@@ -15,6 +15,8 @@ const New = () => {
   const inputName = useRef(null);
   const inputDesciption = useRef(null);
   const inputPriority = useRef(null);
+  const [pending , setPending] = useState(false);
+  const [buttonStatus , setButtonStatus] = useState('CREATE');
 
   const getPriorityList = async () =>
   { 
@@ -42,27 +44,37 @@ const New = () => {
   }
   const handleSubmit = async (e) =>
   {
-    e.preventDefault();   
+    e.preventDefault();
+    setButtonStatus('CREATING...')
+    setPending(true);   
     values.priority_id = Number(values.priority_id)
     const isCreated = await createIssue(values, token);
     if(isCreated){
-      toast.success('Successfully created!', {
-        position: "bottom-center",
-        duration: 3500,
-        style: {
-            fontFamily:'ui-monospace, Menlo, Monaco, Cascadia Mono, Segoe UI Mono, Roboto Mono, Oxygen Mono, Ubuntu Monospace, Source Code Pro, Fira Mono, Droid Sans Mono, Courier New, monospace'},
-      });
-      inputName.current.value = '';
-      inputDesciption.current.value = '';
-      inputPriority.current.value = 1;
-      setSelectedOption(1)
+      setTimeout(() => {
+        toast.success('Successfully created!', {
+          position: "bottom-center",
+          duration: 2000,
+          style: {
+              fontFamily:'ui-monospace, Menlo, Monaco, Cascadia Mono, Segoe UI Mono, Roboto Mono, Oxygen Mono, Ubuntu Monospace, Source Code Pro, Fira Mono, Droid Sans Mono, Courier New, monospace'},
+        });
+        setButtonStatus('CREATE');
+        setPending(false);
+        inputName.current.value = '';
+        inputDesciption.current.value = '';
+        inputPriority.current.value = 1;
+        setSelectedOption(1);
+      }, 500);
     }else{
-      toast.error('Failed to create!', {
-        position: "bottom-center",
-        duration: 3500,
-        style: {
-            fontFamily:'ui-monospace, Menlo, Monaco, Cascadia Mono, Segoe UI Mono, Roboto Mono, Oxygen Mono, Ubuntu Monospace, Source Code Pro, Fira Mono, Droid Sans Mono, Courier New, monospace'},
-      });
+      setTimeout(() => {
+        toast.error('Failed to create!', {
+          position: "bottom-center",
+          duration: 2000,
+          style: {
+              fontFamily:'ui-monospace, Menlo, Monaco, Cascadia Mono, Segoe UI Mono, Roboto Mono, Oxygen Mono, Ubuntu Monospace, Source Code Pro, Fira Mono, Droid Sans Mono, Courier New, monospace'},
+        });
+        setButtonStatus('CREATE');
+        setPending(false);
+      }, 500);
     }
   }
 
@@ -80,7 +92,7 @@ const New = () => {
         <select name='priority_id' ref={inputPriority} onChange={e => handleChange(e)} value={selectedOption}> 
           {selectOptions && (selectOptions.map((option) => (<option key={option.id} value={option.id}> {option.type} </option>)))} 
         </select>
-        <input type='submit' value='CREATE'/>
+        <input type='submit' value={buttonStatus} disabled={pending}/>
       </form>
       <div className='container__redirect' style={{marginTop: '1.5em'}}>
         <Link to='/issues'><HiOutlineArrowNarrowLeft></HiOutlineArrowNarrowLeft>Issues</Link>   
